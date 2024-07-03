@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メートル・ヤードetc.</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>       
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <style>
+        body {
+            background-color: #c4acac;
+        }
+
+        input, select {
+            border: 1px solid #c1a57b;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        p {
+            font-size: 18px;
+            color: #4a4a4a;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .radio-label input {
+            margin-right: 8px;
+        }
+
+        .custom-unit {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="font-body" x-data="{ 
+    input: '',
+    select: [],
+    direction: 'toImperial',
+    conversions: {
+        マイル: 1609,
+        ハロン: 201.17,
+        チェーン: 20.1168,
+        ヤード: 0.91441,
+        フィート: 0.30478,
+        インチ: 0.0254
+    },
+    customUnitName: '',
+    customUnitValue: '',
+    addCustomUnit: function() {
+        if (this.customUnitName && this.customUnitValue) {
+            this.conversions[this.customUnitName] = parseFloat(this.customUnitValue);
+            this.customUnitName = '';
+            this.customUnitValue = '';
+        }
+    },
+    getRate: function(unit) {
+        return this.conversions[unit];
+    },
+    convertedValues: function() {
+        let results = {};
+        this.select.forEach(unit => {
+            if (this.direction === 'toImperial') {
+                results[unit] = (this.input / this.getRate(unit)).toFixed(2);
+            } else {
+                results[unit] = (this.input * this.getRate(unit)).toFixed(2);
+            }
+        });
+        return results;
+    }
+}">
+    <div class="flex  flex-col w-full max-w-xs mx-auto mt-8 gap-4" >
+        <input x-model="input" placeholder="数値を入力" type="number" class="border-0">
+        <div class="flex flex-col items-start">
+            <label class="radio-label">
+                <input type="radio" x-model="direction" value="toImperial">
+                メートルから
+            </label>
+            <label class="radio-label">
+                <input type="radio" x-model="direction" value="toMetric">
+                メートルへ
+            </label>
+        </div>
+        <div class="flex flex-col items-start">
+            <template x-for="(value, key) in conversions" :key="key">
+                <label class="radio-label">
+                    <input type="checkbox" :value="key" x-model="select">
+                    <span x-text="key"></span>
+                </label>
+            </template>
+        </div>
+        <div class="text-right bg-white px-2 py-1">
+            <template x-for="(value, key) in convertedValues()" :key="key">
+                <p x-text="`${key}: ${value}`"></p>
+            </template>
+        </div>
+    </div>
+
+    <div class="custom-unit flex flex-col w-full max-w-xs mx-auto mt-8">
+        <h2 class="text-lg font-bold mb-2">カスタム単位の追加</h2>
+        <input x-model="customUnitName" placeholder="単位名 (例: km)" type="text" class="mb-2">
+        <input x-model="customUnitValue" placeholder="メートル換算値" type="number" class="mb-2">
+        <button @click="addCustomUnit" class="bg-blue-500 text-white px-4 py-2 rounded">追加</button>
+    </div>
+    <div class="custom-unit-list flex flex-col w-full max-w-xs mx-auto mt-8">
+        <h2 class="text-lg font-bold mb-2">カスタム単位リスト</h2>
+        <template x-for="(value, key) in conversions" :key="key">
+            <div class="flex justify-between items-center mb-2">
+                <span x-text="`${key}: ${value} メートル`"></span>
+                <button @click="removeCustomUnit(key)" class="bg-red-500 text-white px-2 py-1 rounded">削除</button>
+            </div>
+        </template>
+    </div>
+
+</body>
+</html>
