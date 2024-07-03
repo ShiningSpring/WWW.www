@@ -75,9 +75,9 @@
         let results = {};
         this.select.forEach(unit => {
             if (this.direction === 'toImperial') {
-                results[unit] = (this.input / this.getRate(unit)).toFixed(2);
+                results[unit] = (this.input / this.getRate(unit));
             } else {
-                results[unit] = (this.input * this.getRate(unit)).toFixed(2);
+                results[unit] = (this.input * this.getRate(unit));
             }
         });
         return results;
