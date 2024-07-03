@@ -65,6 +65,9 @@
             this.customUnitValue = '';
         }
     },
+    removeCustomUnit: function(unit) {
+        delete this.conversions[unit];
+    },
     getRate: function(unit) {
         return this.conversions[unit];
     },
