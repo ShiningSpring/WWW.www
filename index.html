@@ -7,6 +7,10 @@
     <script src="https://unpkg.com/alpinejs" defer></script>       
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <style>
+        /* * {
+            outline: 1px solid red;
+        } */
+
         body {
             background-color: #c4acac;
         }
@@ -41,6 +45,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 100%;
         }
+      
     </style>
 </head>
 
@@ -74,7 +79,7 @@
     convertedValues: function() {
         let results = {};
         this.select.forEach(unit => {
-            if (this.direction === 'toImperial') {
+            if (this.direction === 'toUK') {
                 results[unit] = (this.input / this.getRate(unit));
             } else {
                 results[unit] = (this.input * this.getRate(unit));
@@ -88,11 +93,11 @@
         <input x-model="input" placeholder="数値を入力" type="number" class="border-0">
         <div class="flex flex-col items-start">
             <label class="radio-label">
-                <input type="radio" x-model="direction" value="toImperial">
+                <input type="radio" x-model="direction" value="toUK">
                 メートルから
             </label>
             <label class="radio-label">
-                <input type="radio" x-model="direction" value="toMetric">
+                <input type="radio" x-model="direction" value="toM">
                 メートルへ
             </label>
         </div>
