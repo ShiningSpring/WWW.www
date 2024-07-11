@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;lib&apos; to &apos;的当的遊戯&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;2&apos;&#x0D;&#x0A;- 宛先要素: &apos;的当的遊戯&apos;&#x0D;&#x0A;- オリジナル要素: &apos;lib&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="フォルダーを移動" destination="=的当的遊戯" element1="lib" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1668165961384" units="0" version="1.0"/>
+</session>
