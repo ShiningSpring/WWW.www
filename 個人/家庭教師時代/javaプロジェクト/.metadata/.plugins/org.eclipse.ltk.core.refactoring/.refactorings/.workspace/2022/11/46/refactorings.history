@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="リソース &apos;2/lib&apos; を削除" deleteContents="false" description="リソース &apos;2/lib&apos; を削除" element1="/2/lib" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1668165757105"/>&#x0A;<refactoring comment="リソース &apos;的当的遊戯/lib/nompor-lib.jar&apos; を削除" deleteContents="false" description="リソース &apos;的当的遊戯/lib/nompor-lib.jar&apos; を削除" element1="/的当的遊戯/lib/nompor-lib.jar" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1668166616594"/>
-</session>

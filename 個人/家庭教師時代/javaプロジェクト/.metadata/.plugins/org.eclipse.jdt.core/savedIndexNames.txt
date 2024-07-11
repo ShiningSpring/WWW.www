@@ -1,9 +1,0 @@
-INDEX VERSION 1.131+Z:\コード溜り\javaプロジェクト\.metadata\.plugins\org.eclipse.jdt.core
-1055437930.index
-3338326029.index
-552531383.index
-3721861684.index
-2667598119.index
-639562714.index
-1865797976.index
-1266422917.index

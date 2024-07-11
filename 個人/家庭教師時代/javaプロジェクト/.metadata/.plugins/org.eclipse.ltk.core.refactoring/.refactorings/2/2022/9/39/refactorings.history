@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;sample.png&apos; to &apos;2&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;2&apos;&#x0D;&#x0A;- 宛先要素: &apos;2&apos;&#x0D;&#x0A;- オリジナル要素: &apos;sample.png&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="ファイルを移動する" destination="=2" element1="src/sample.png" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1663757145437" units="0" version="1.0"/>
-</session>
